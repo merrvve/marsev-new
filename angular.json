@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "marsev:build:production"
+              "buildTarget": "marsev:build:production"
             },
             "development": {
-              "browserTarget": "marsev:build:development"
+              "buildTarget": "marsev:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "marsev:build"
+            "buildTarget": "marsev:build"
           }
         },
         "test": {

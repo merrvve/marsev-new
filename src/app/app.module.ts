@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire/compat';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';        
+
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +22,7 @@ import { KitapComponent } from './pages/kitaplar/kitap/kitap.component';
 import { SiparisComponent } from './pages/kitaplar/siparis/siparis.component';
 import { BagisComponent } from './pages/bagis/bagis.component';
 import { DuyuruComponent } from './pages/home/duyuru/duyuru.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,10 @@ import { DuyuruComponent } from './pages/home/duyuru/duyuru.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirestore(() => getFirestore()),  
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
